@@ -33,7 +33,7 @@ from address;
 -- Q7: What film has the most actors in it? A7: 
 select film_id 
 from film_actor
-group by film_id;5
+group by film_id;
 
 -- Q8: From store_id 1 in customer table, how many customers have a last name ending with '-es'? A8: 13
 select store_id, last_name
