@@ -30,10 +30,11 @@ order by count(staff_id) desc;
 select count(distinct district) 
 from address;
 
--- Q7: What film has the most actors in it? A7: 
-select film_id 
+-- Q7: What film has the most actors in it? A7: film_id 508, 15 actors
+select film_id, count (distinct actor_id)
 from film_actor
-group by film_id;
+group by film_id
+order by count(actor_id) desc;
 
 -- Q8: From store_id 1 in customer table, how many customers have a last name ending with '-es'? A8: 13
 select store_id, last_name
@@ -42,12 +43,12 @@ where store_id = 1 and last_name like '%es'
 group by store_id, last_name;
 
 -- Q9: How many payment amounts had a number of rentals greater than 250 for customer_ids between 380 and 430?
--- A9: 
-select amount, count(distinct amount), customer_id
+-- A9: Table has incorrect data to reach desired result
+select amount, count(amount), customer_id
 from payment
 where customer_id between 380 and 430
 group by amount, customer_id
-having count(distinct amount) > 250;
+having count(amount) > 250;
 
 -- Q10: Within the film table, how many rating categories are there? And what rating has the most movies total? 
 -- A10: 5 categories, PG-13 has the most movies
